@@ -97,7 +97,7 @@ O projeto será carregado com a simulação do hardware já configurada (ESP32, 
 Clique no botão "Start Simulation" para iniciar a coleta de dados e o envio de mensagens.
 
 2. Importar e Configurar os Fluxos do Node-RED
-3. 
+
 Abra a interface do Node-RED em seu navegador (geralmente em http://localhost:1880).
 
 No canto superior direito, clique no menu (três linhas horizontais) e selecione "Import".
