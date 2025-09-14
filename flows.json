@@ -1,0 +1,376 @@
+[
+    {
+        "id": "50b0c24a0870d759",
+        "type": "tab",
+        "label": "Fluxo 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "b5c4d3e2.1f0g9h8i",
+        "type": "mqtt-broker",
+        "name": "EMQX Broker",
+        "broker": "test.mosquitto.org",
+        "port": "1883",
+        "clientid": "NodeRED_IoT_Game",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": 4,
+        "keepalive": "60",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "9a8b7c6d.5e4f3g2h",
+        "type": "ui_tab",
+        "name": "Dashboard do Jogo",
+        "icon": "dashboard",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "e1f2g3h4.i5j6k7l8",
+        "type": "ui_group",
+        "name": "Dados Ambientais",
+        "tab": "9a8b7c6d.5e4f3g2h",
+        "order": 1,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "f1g2h3i4.j5k6l7m8",
+        "type": "ui_group",
+        "name": "Dados do Jogo",
+        "tab": "9a8b7c6d.5e4f3g2h",
+        "order": 2,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "acd50801ddc62809",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-dark",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#a74ac9",
+                "baseFont": "Arial,Arial,Helvetica,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#913cb9",
+                "baseFont": "Arial,Arial,Helvetica,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "reset": false
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#097479",
+                    "value": "#913cb9",
+                    "edited": true
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#913cb9",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#333333",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#b271d1",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#555555",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#333333",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#eeeeee",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#913cb9",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#333333",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "Arial,Arial,Helvetica,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey",
+                "palette": "light"
+            }
+        },
+        "site": {
+            "name": "PASSA A BOLA",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "false",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "6d9e6afe4db0dc7c",
+        "type": "debug",
+        "z": "50b0c24a0870d759",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1520,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "e7ee4d28d48c4080",
+        "type": "mqtt in",
+        "z": "50b0c24a0870d759",
+        "name": "Receber dados do ESP32",
+        "topic": "pfc/futebol",
+        "qos": "2",
+        "broker": "b5c4d3e2.1f0g9h8i",
+        "inputs": 0,
+        "x": 1070,
+        "y": 500,
+        "wires": [
+            [
+                "9961b33190838f63"
+            ]
+        ]
+    },
+    {
+        "id": "9961b33190838f63",
+        "type": "function",
+        "z": "50b0c24a0870d759",
+        "name": "Validar e Converter JSON",
+        "func": "try {\n    msg.payload = JSON.parse(msg.payload);\n    return msg;\n} catch (e) {\n    node.warn(\"Erro ao converter para JSON: \" + e.message);\n    return null;\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1310,
+        "y": 500,
+        "wires": [
+            [
+                "b3adb6b23421f20c",
+                "1c3f350545b3554f",
+                "2922de9ed52d3333",
+                "6d9e6afe4db0dc7c",
+                "5ec5679e960f3127"
+            ]
+        ]
+    },
+    {
+        "id": "b3adb6b23421f20c",
+        "type": "ui_gauge",
+        "z": "50b0c24a0870d759",
+        "name": "Temperatura",
+        "group": "e1f2g3h4.i5j6k7l8",
+        "order": 1,
+        "width": 6,
+        "height": 3,
+        "gtype": "gage",
+        "title": "",
+        "label": "Temperatura",
+        "format": "{{msg.payload.temperatura}}",
+        "min": "0",
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 1530,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "1c3f350545b3554f",
+        "type": "ui_gauge",
+        "z": "50b0c24a0870d759",
+        "name": "Umidade",
+        "group": "e1f2g3h4.i5j6k7l8",
+        "order": 2,
+        "width": 6,
+        "height": 3,
+        "gtype": "gage",
+        "title": "",
+        "label": "Umidade",
+        "format": "{{msg.payload.umidade}}",
+        "min": "0",
+        "max": "100",
+        "colors": [
+            "#b31b00",
+            "#e6e600",
+            "#11ff00"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 1530,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "2922de9ed52d3333",
+        "type": "ui_text",
+        "z": "50b0c24a0870d759",
+        "group": "f1g2h3i4.j5k6l7m8",
+        "order": 1,
+        "width": 6,
+        "height": 3,
+        "name": "Posse de Bola",
+        "label": "Jogador 1: {{msg.payload.posse_jogador1}}s",
+        "format": "Jogador 2: {{msg.payload.posse_jogador2}}s",
+        "layout": "",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": "",
+        "color": "#000000",
+        "x": 1530,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "473b42bffe0ee327",
+        "type": "ui_chart",
+        "z": "50b0c24a0870d759",
+        "name": "",
+        "group": "f1g2h3i4.j5k6l7m8",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "label": "Distancia percorrida",
+        "chartType": "line",
+        "legend": "true",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "100",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 1600,
+        "y": 660,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "5ec5679e960f3127",
+        "type": "change",
+        "z": "50b0c24a0870d759",
+        "name": "Para Grafico de Distancia",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.distancia_percorrida",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1370,
+        "y": 640,
+        "wires": [
+            [
+                "473b42bffe0ee327"
+            ]
+        ]
+    },
+    {
+        "id": "3b3975d6ec51ec47",
+        "type": "global-config",
+        "env": [],
+        "modules": {
+            "node-red-dashboard": "3.6.6"
+        }
+    }
+]
