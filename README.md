@@ -8,9 +8,9 @@ Bernardo Moreira, rm: 564103
 
 Francisco Nogueira de Queiroz, rm:566309
 
-Sara Maragon, rm:563807
-
 Rhariel, rm: 566310
+
+Sara Maragon, rm:563807
 
 📝 Descrição do Projeto
 Este projeto é um sistema de monitoramento de dados em tempo real para jogos de futebol, utilizando uma solução de Internet das Coisas (IoT). O objetivo principal é coletar, processar e visualizar informações cruciais sobre as condições ambientais e métricas de jogo, oferecendo uma análise detalhada do evento.
